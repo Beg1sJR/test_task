@@ -7,9 +7,7 @@ class ProductsData {
   ProductsData({required this.dio});
 
   Future<List<ProductModel>> getAllProducts() async {
-    final response = await dio.get(
-      'http://192.168.10.16:8080/api/public/products',
-    );
+    final response = await dio.get('http://10.0.2.2:8080/api/public/products');
     final data = response.data['products'] as List;
     return data.map((e) => ProductModel.fromMap(e)).toList();
   }
@@ -19,7 +17,7 @@ class ProductsData {
     Map<String, dynamic> data,
   ) async {
     final response = await dio.post(
-      'http://192.168.10.16:8080/api/products',
+      'http://10.0.2.2:8080/api/products',
       data: data,
       options: Options(headers: {'Authorization': 'Bearer $token'}),
     );

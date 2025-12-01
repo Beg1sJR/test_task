@@ -11,7 +11,7 @@ class AuthData {
 
   Future<LoginModel> login({required Map<String, dynamic> data}) async {
     final responseLogin = await dio.post(
-      'http://192.168.10.16:8080/auth/login',
+      'http://10.0.2.2:8080/auth/login',
       data: data,
     );
 
@@ -21,7 +21,7 @@ class AuthData {
 
   Future<RegisterModel> register({required Map<String, dynamic> data}) async {
     final responseRegister = await dio.post(
-      'http://192.168.10.16:8080/auth/register',
+      'http://10.0.2.2:8080/auth/register',
       data: data,
     );
     log(responseRegister.data.toString());
